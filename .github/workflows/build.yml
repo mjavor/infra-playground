@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build . -t "app-build-ci-$GITHUB_SHA" --target=build
+        run: docker build ./backend -t "app-build-ci-$GITHUB_SHA" --target=build
 
       - name: Linters
         run: docker run --rm "app-build-ci-$GITHUB_SHA" yarn lint
